@@ -1,21 +1,11 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-import argparse
 import json
 import os
 import os.path as osp
-import base64
-import warnings
-
-import PIL.Image
-import yaml
-
-from labelme import utils
-
 import cv2
 import numpy as np
-from skimage import img_as_ubyte
 
 # from sys import argv
 
