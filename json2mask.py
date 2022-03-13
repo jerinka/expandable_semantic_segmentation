@@ -9,7 +9,7 @@ import numpy as np
 
 # from sys import argv
 
-def json2mask(json_file='dataset/train',outpath='dataset/dataXY/train', outHW=(256,256)):
+def json2mask(json_file='dataset/train',outpath='dataset/dataXY/train', outHW=(256,256), disp=False):
  
     cv2.namedWindow(winname='img', flags=cv2.WINDOW_NORMAL)
     cv2.namedWindow(winname='mask', flags=cv2.WINDOW_NORMAL)
@@ -44,11 +44,12 @@ def json2mask(json_file='dataset/train',outpath='dataset/dataXY/train', outHW=(2
 
         cv2.imwrite(os.path.join(outpathimg,list_path[i].replace('.json','.png')),img)
         cv2.imwrite(os.path.join(outpathmask,list_path[i].replace('.json','.png')),mask)
-        cv2.imshow('img', img)
-        cv2.imshow('mask', mask*64)
-        k=cv2.waitKey(100)
-        if k==27:
-            break
+        if disp:
+            cv2.imshow('img', img)
+            cv2.imshow('mask', mask*64)
+            k=cv2.waitKey(100)
+            if k==27:
+                break
 
 if __name__ == '__main__':
     #base64path = argv[1]
