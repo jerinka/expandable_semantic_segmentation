@@ -10,9 +10,10 @@ import numpy as np
 # from sys import argv
 
 def json2mask(json_file='dataset/train',outpath='dataset/dataXY/train', outHW=(256,256), disp=False):
- 
-    cv2.namedWindow(winname='img', flags=cv2.WINDOW_NORMAL)
-    cv2.namedWindow(winname='mask', flags=cv2.WINDOW_NORMAL)
+    
+    if disp:
+        cv2.namedWindow(winname='img', flags=cv2.WINDOW_NORMAL)
+        cv2.namedWindow(winname='mask', flags=cv2.WINDOW_NORMAL)
 
     list_path = [f for f in os.listdir(json_file) if f.endswith('.json')]
     if len(list_path):
